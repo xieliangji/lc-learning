@@ -1,24 +1,21 @@
 package xieliangji.lc.sort;
 
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
 public class TestHeapSorter {
 
-    @Test
-    @DisplayName("测试堆排序")
-    void testSort() {
-        List<Integer> unordered = new ArrayList<>(List.of(
-                3, 5, 3, 0, 8, 6, 1, 5,
-                8, 6, 2, 4, 9, 4, 7, 0, 1, 8, 9,
-                7, 3, 1, 2, 5, 9, 7, 4, 0, 2, 6
-        ));
 
-        List<Integer> ordered = new HeapSorter<Integer>(){}.sort(unordered, Comparator.naturalOrder());
+    @DisplayName("测试堆排序")
+    @ParameterizedTest
+    @MethodSource("xieliangji.lc.ajunit.DataCenter#forTestHeapSort")
+    void testHeapSort(List<Integer> unordered) {
+        List<Integer> ordered = new HeapSorter<Integer>() {
+        }.sort(unordered, Comparator.reverseOrder());
         System.out.println("sorted: " + ordered);
     }
 }
