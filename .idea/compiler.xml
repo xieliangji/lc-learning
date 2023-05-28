@@ -9,8 +9,5 @@
         <module name="lc-learning" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="lc-learning" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
